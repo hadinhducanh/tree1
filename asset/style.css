@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffe;
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #231f20;
+  overflow: auto;
+}
+a {
+  color: #000;
+  font-size: 14px;
+}
+#main {
+  width: 100%;
+}
+#wrap {
+  position: relative;
+  margin: 0 auto;
+  width: 1100px;
+  height: 680px;
+  margin-top: 10px;
+}
+#text {
+  width: 400px;
+  height: 425px;
+  left: 60px;
+  top: 80px;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 0;
+}
+#text::before {
+  content: "";
+  position: absolute;
+  inset: -50% -40%;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(255, 151, 151, 0.15) 120deg, transparent 240deg);
+  animation: text-bg-drift 16s linear infinite;
+  pointer-events: none;
+}
+#code {
+  display: none;
+  font-size: 16px;
+  position: relative;
+  z-index: 1;
+}
+#signoff {
+  display: none;
+  margin-top: 12px;
+  margin-left: 20px;
+  position: relative;
+  z-index: 1;
+}
+.signature {
+  display: inline-block;
+  margin-top: 8px;
+}
+#clock-box {
+  position: absolute;
+  left: 60px;
+  top: 550px;
+  font-size: 28px;
+  display: none;
+}
+#clock-box a {
+  font-size: 28px;
+  text-decoration: none;
+}
+#clock {
+  margin-left: 48px;
+}
+#clock .digit {
+  font-size: 64px;
+}
+#canvas {
+  margin: 0 auto;
+  width: 1100px;
+  height: 680px;
+  display: block;
+}
+#error {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 60px;
+  display: none;
+}
+.hand {
+  cursor: pointer;
+}
+.say {
+  margin-left: 5px;
+}
+.space {
+  margin-right: 150px;
+}
+
+@keyframes heart-beat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes text-bg-drift {
+  0% {
+    transform: translate(-8%, -5%) rotate(0deg);
+  }
+  100% {
+    transform: translate(8%, 6%) rotate(360deg);
+  }
+}
+
+.heart-icon {
+  animation: heart-beat 1s infinite ease-in-out;
+}
+
+@media (max-width: 768px) {
+  body {
+    min-height: 100dvh;
+  }
+
+  #main {
+    min-height: 100dvh;
+  }
+
+  #wrap {
+    width: 100%;
+    min-height: 100dvh;
+    margin-top: 0;
+    padding: 16px 12px clamp(220px, 52vw, 360px);
+    box-sizing: border-box;
+  }
+
+  #text {
+    position: static;
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    margin: 0 auto;
+    left: auto;
+    top: auto;
+    overflow: hidden;
+    border-radius: 0;
+  }
+
+  #code {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  #canvas {
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    margin: 0;
+  }
+
+  .space {
+    margin-right: 0;
+  }
+}
